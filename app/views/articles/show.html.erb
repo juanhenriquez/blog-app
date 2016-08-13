@@ -1,0 +1,11 @@
+<h1>Article <%= @article.id %> - Create at <%= @article.created_at %></h1>
+
+<p>
+    Title:<%= @article.title %>
+</p>
+<p>
+    Description: <%= @article.description %>
+</p>
+
+<%= link_to "Edit article", edit_article_path %>
+<%= link_to "Back to the list", articles_path %>
