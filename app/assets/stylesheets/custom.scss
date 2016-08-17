@@ -1,0 +1,15 @@
+$layout-header-bg-color: rgb(33,33,33) !default;
+@import 'material';
+.mdl-layout__drawer-button {
+    margin: 5px 12px;
+}
+
+.card-home {
+    width: 100%;
+}
+
+.card-home > .mdl-card__title {
+  color: #fff;
+  height: 306px;
+  background: url(gn-newyork.png) center / cover;
+}
