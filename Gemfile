@@ -9,6 +9,12 @@ gem 'puma', '~> 3.0'
 # Material Design Lite for app styles.
 gem 'material_design_lite-sass'
 
+# Share variables between Rails and Javascript files.
+gem 'gon'
+
+# Bootstrap 4 for app styles.
+gem 'bootstrap', '~> 4.0.0.alpha3.1'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
