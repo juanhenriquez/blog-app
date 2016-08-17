@@ -1,10 +1,39 @@
 $layout-header-bg-color: rgb(33,33,33) !default;
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+@import "bootstrap/grid";
+@import "bootstrap/buttons";
+@import "bootstrap/animation";
+@import "bootstrap/card";
+@import "bootstrap/alert";
+@import "bootstrap/close";
+@import "bootstrap/utilities";
 @import 'material';
+
+a {
+    text-decoration: none!important;
+}
+
+#alert-message {
+    margin-top: 25px;
+}
+
+.btn-danger {
+    background-color: #d9534f!important;
+    color: #fff!important;
+}
+
+.mdl-card {
+    min-height: 0;
+}
+
 .mdl-layout__drawer-button {
     margin: 5px 12px;
 }
 
-.card-home {
+.card-home,
+.card-form {
     width: 100%;
 }
 
@@ -12,4 +41,9 @@ $layout-header-bg-color: rgb(33,33,33) !default;
   color: #fff;
   height: 306px;
   background: url(gn-newyork.png) center / cover;
+}
+
+.page-title {
+    width: 100%;
+    text-align: center;
 }
