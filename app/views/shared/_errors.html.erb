@@ -1,14 +1,14 @@
 <!-- article is a variable, that is passes throug render parameters -->
-<% if article.errors.any? %>
+<% if obj.errors.any? %>
     <div class="row">
         <div class="col-xs-8 offset-xs-2">
             <div class="alert alert-warning alert-dismissible fade in" role="alert">
-                <h4 class="alert-heading"><%= pluralize(article.errors.count, "Error") %></h4>
+                <h4 class="alert-heading"><%= pluralize(obj.errors.count, "Error") %></h4>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <ul>
-                    <% article.errors.full_messages.each do |message| %>
+                    <% obj.errors.full_messages.each do |message| %>
                         <li><%= message %> <br/></li>
                     <% end %>
                 </ul>
