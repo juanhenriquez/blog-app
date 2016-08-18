@@ -15,6 +15,9 @@ gem 'gon'
 # Bootstrap 4 for app styles.
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 
+# BCrypt for create a random has for passwords.
+gem 'bcrypt', '~> 3.1.7'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
