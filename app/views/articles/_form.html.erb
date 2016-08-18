@@ -1,4 +1,4 @@
-<%= render "shared/errors", article: @article %>
+<%= render "shared/errors", obj: @article %>
 <div class="row row-grid">
     <div class="col-xs-12 col-md-6 offset-md-3">
         <%= form_for @article, html: { class: "mdl-card mdl-shadow--2dp card-form" } do |f|%>
@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="mdl-card__actions mdl-card--border">
-            <%= f.submit "Create", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" %>
+            <%= f.submit(@article.new_record? ? "Create" : "Update", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect") %>
             <%= link_to "Back to the list", articles_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" %>
             <% if enable_back_button %>
             <%= link_to "Back to article", article_path(@article), class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" %>
