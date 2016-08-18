@@ -15,6 +15,12 @@ a {
     text-decoration: none!important;
 }
 
+textarea.mdl-textfield__input {
+    height: 120px;
+    max-width: 100%;
+    resize: vertical;
+}
+
 #alert-message {
     margin-top: 25px;
 }
@@ -28,6 +34,23 @@ a {
     color: #fff!important;
 }
 
+.card-home,
+.card-form {
+    width: 100%;
+}
+
+.card-home > .mdl-card__title {
+  color: #fff;
+  height: 306px;
+  background: url(gn-newyork.png) center / cover;
+}
+
+.mdl-card {
+    min-height: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
 .mdl-card__title {
     flex-direction: column;
     justify-content: center;
@@ -38,25 +61,12 @@ a {
     }
 }
 
-.mdl-card {
-    min-height: 0;
-    max-width: 100%;
-    width: 100%;
-}
-
 .mdl-layout__drawer-button {
     margin: 5px 12px;
 }
 
-.card-home,
-.card-form {
+.mdl-textfield {
     width: 100%;
-}
-
-.card-home > .mdl-card__title {
-  color: #fff;
-  height: 306px;
-  background: url(gn-newyork.png) center / cover;
 }
 
 .page-title {
