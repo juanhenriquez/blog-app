@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+    has_many :articles
+    before_save { self.email = email.downcase }
+
     # uniqueness - Esto es para asegurar que la columna sea unica.
     # presence - Asegura la presencia de la columna a la hora de crear una entidad.
     validates :username, presence: true,
