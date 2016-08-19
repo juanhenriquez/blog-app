@@ -26,4 +26,15 @@
             </div>
         </div>
     </div>
+</div><div class="row">
+<div class="row">
+    <div class="col-xs-12 col-md-4 offset-md-4">
+        <div class="mdl-card mdl-shadow--2dp" id="user-card">
+            <%= link_to gravatar_for(@article.user, size: 1000), user_path(@article.user) %>
+            <div class="mdl-card__title mdl-card--expand">
+                <h4><strong><i>@<%= @article.user.username %></i></strong></h4>
+                <small><stong><%= pluralize(@article.user.articles.count, "article") if @article.user.articles%></stong></small>
+            </div>
+        </div>
+    </div>
 </div>
