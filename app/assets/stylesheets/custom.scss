@@ -53,6 +53,16 @@ textarea.mdl-textfield__input {
     margin-left: -60px;
 }
 
+#user-card .mdl-card__title {
+    justify-content: center;
+    align-items: center;
+
+    & h5 {
+        margin: 0;
+    }
+
+}
+
 .btn-danger {
     background-color: #d9534f!important;
     color: #fff!important;
