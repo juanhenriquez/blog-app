@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 
     before_action :set_user, only: [:edit, :update, :destroy, :show]
 
+    # GET /users
+    def index
+        @users = User.all
+    end
+
     # GET /users/:id
     def show
 
