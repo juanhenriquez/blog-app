@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
 
+    before_action :set_user, only: [:edit, :update, :destroy, :show]
+
+    # GET /users/:id
+    def show
+
+    end
+
     # GET /signup
     def new
         @user = User.new
@@ -20,12 +27,11 @@ class UsersController < ApplicationController
 
     # GET users/:id/edit
     def edit
-        @user = User.find(params[:id])
+
     end
 
     # POST users/:id/
     def update
-        @user = User.find(params[:id])
 
         if @user.update(user_params)
             flash[:success] = "Your account was successfully updated!"
@@ -36,9 +42,17 @@ class UsersController < ApplicationController
 
     end
 
+    # DELETE users/:id
+    def destroy
+    end
+
     private
     def user_params
         params.require(:user).permit(:username, :email, :password);
+    end
+
+    def set_user
+        @user = User.find(params[:id])
     end
 
 end
