@@ -9,10 +9,15 @@ $layout-header-bg-color: rgb(33,33,33) !default;
 @import "bootstrap/alert";
 @import "bootstrap/close";
 @import "bootstrap/utilities";
+@import "bootstrap/images";
 @import 'material';
 
 a {
     text-decoration: none!important;
+}
+
+body {
+    background-color: #263238;
 }
 
 textarea.mdl-textfield__input {
@@ -27,6 +32,25 @@ textarea.mdl-textfield__input {
 
 #index_page {
     padding-top: 40px;
+}
+
+#user-card {
+    min-height: 80px;
+    padding-top: 35px;
+    position: relative;
+    display: flex;
+    overflow: visible;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+#user-card .img-circle {
+    width: 120px;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    margin-left: -60px;
 }
 
 .btn-danger {
@@ -72,6 +96,8 @@ textarea.mdl-textfield__input {
 .page-title {
     width: 100%;
     text-align: center;
+    color: #fff;
+    font-weight: bolder;
 }
 
 // Row and column vertical spacing.

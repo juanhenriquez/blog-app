@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row row-grid">
+        <div class="col-xs-12 col-md-4 offset-md-4">
+            <div class="mdl-card mdl-shadow--2dp" id="user-card">
+                <%= gravatar_for @user, size: 1000 %>
+                <div class="mdl-card__title mdl-card--expand">
+                    <h4><strong><i>@<%= @user.username %></i></strong></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <%= render "articles/article", obj: @user.articles %>
+        </div>
+    </div>
+</div>
