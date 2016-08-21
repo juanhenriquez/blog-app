@@ -15,6 +15,12 @@ gem 'gon'
 # Bootstrap 4 for app styles.
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 
+gem 'materialize-sass'
+
+gem 'will_paginate', '~> 3.1.0'
+
+gem 'will_paginate-materialize'
+
 # BCrypt for create a random has for passwords.
 gem 'bcrypt', '~> 3.1.7'
 
