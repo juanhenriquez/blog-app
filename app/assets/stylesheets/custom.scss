@@ -10,6 +10,24 @@ $layout-header-bg-color: rgb(33,33,33) !default;
 @import "bootstrap/close";
 @import "bootstrap/utilities";
 @import "bootstrap/images";
+
+
+// Mixins
+@import "materialize/components/prefixer";
+@import "materialize/components/mixins";
+@import "materialize/components/color";
+// Variables
+@import "materialize/components/variables";
+// Reset
+@import "materialize/components/normalize";
+// materialize/components
+@import "materialize/components/global";
+@import "materialize/components/icons-material-design";
+@import "materialize/components/roboto";
+@import "materialize/components/typography";
+@import "materialize/components/cards";
+@import "materialize/components/buttons";
+@import "materialize/components/waves";
 @import 'material';
 
 a {
@@ -108,6 +126,14 @@ textarea.mdl-textfield__input {
     text-align: center;
     color: #fff;
     font-weight: bolder;
+}
+
+.pagination {
+    text-align: center!important;
+}
+
+.pagination a li.active {
+  color: #fff;
 }
 
 // Row and column vertical spacing.
