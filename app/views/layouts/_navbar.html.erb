@@ -8,25 +8,46 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
-        <%= link_to "About", pages_about_path, class: "mdl-navigation__link" %>
-        <a class="mdl-navigation__link" id="articles-nav-button">Articles</a>
-        <ul for="articles-nav-button" class="mdl-menu mdl-js-menu">
-          <%= link_to "Articles List", articles_path, class: "mdl-menu__item" %>
-          <%= link_to "New Article", new_article_path, class: "mdl-menu__item" %>
-        </ul>
+
+        <% if logged_in? %>
+            <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
+            <%= link_to "About", pages_about_path, class: "mdl-navigation__link" %>
+            <a class="mdl-navigation__link" id="articles-nav-button">Articles</a>
+            <%= link_to "Log out", logout_path, method: :delete, class: "mdl-navigation__link" %>
+
+            <!-- Articles Dropdown -->
+            <ul for="articles-nav-button" class="mdl-menu mdl-js-menu">
+                <%= link_to "Articles List", articles_path, class: "mdl-menu__item" %>
+                <%= link_to "New Article", new_article_path, class: "mdl-menu__item" %>
+            </ul>
+
+        <% else %>
+            <%= link_to "Login", login_path, class: "mdl-navigation__link" %>
+            <%= link_to "Sign up", signup_path, class: "mdl-navigation__link" %>
+        <% end %>
       </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Blog App</span>
     <nav class="mdl-navigation">
-        <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
-        <%= link_to "About", pages_about_path, class: "mdl-navigation__link" %>
-        <%= link_to "Articles", articles_path, class: "mdl-navigation__link" %>
+        <% if logged_in? %>
+            <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
+            <%= link_to "About", pages_about_path, class: "mdl-navigation__link" %>
+            <a class="mdl-navigation__link" id="articles-nav-button">Articles</a>
+            <%= link_to "Log out", logout_path, method: :delete, class: "mdl-navigation__link" %>
+
+            <!-- Articles Dropdown -->
+            <ul for="articles-nav-button" class="mdl-menu mdl-js-menu">
+                <%= link_to "Articles List", articles_path, class: "mdl-menu__item" %>
+                <%= link_to "New Article", new_article_path, class: "mdl-menu__item" %>
+            </ul>
+
+        <% else %>
+            <%= link_to "Login", login_path, class: "mdl-navigation__link" %>
+            <%= link_to "Sign up", signup_path, class: "mdl-navigation__link" %>
+        <% end %>
     </nav>
   </div>
   <main class="mdl-layout__content">
     <div class="page-content">
-        
-    
