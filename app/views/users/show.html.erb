@@ -9,7 +9,17 @@
             </div>
         </div>
         <div class="col-xs-12">
-            <%= render "articles/article", obj: @user.articles %>
+            <div class="col s12">
+                <%= will_paginate @user_articles, renderer: MaterializeRenderer %>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <%= render "articles/article", obj: @user_articles %>
+        </div>
+        <div class="col-xs-12">
+            <div class="col s12">
+                <%= will_paginate @user_articles, renderer: MaterializeRenderer %>
+            </div>
         </div>
     </div>
 </div>
