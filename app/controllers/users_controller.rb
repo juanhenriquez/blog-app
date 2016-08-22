@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     before_action :set_user, only: [:edit, :update, :destroy, :show]
+    before_action :require_user_owner, only: [:edit, :update]
 
     # GET /users
     def index
@@ -59,6 +60,13 @@ class UsersController < ApplicationController
 
     def set_user
         @user = User.find(params[:id])
+    end
+
+    def require_user_owner
+        if current_user != @user
+            flash[:danger] = "You can only edit or your own account."
+            redirect_to root_path
+        end
     end
 
 end
