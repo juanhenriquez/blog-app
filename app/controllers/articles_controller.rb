@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 
     before_action :set_article, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, execept: [:index, :show]
+    before_action :require_user_owner, only: [:edit, :update, :destroy]
 
     # GET - Show all the articles.
     def index
@@ -23,7 +25,7 @@ class ArticlesController < ApplicationController
 
         # render plain: params[:article].inspect
         @article = Article.new(article_params)
-        @article.user = User.first
+        @article.user = current_user
 
         if @article.save
             flash[:success] = "The articles was created successfully."
@@ -66,6 +68,13 @@ class ArticlesController < ApplicationController
 
         def article_params
             params.require(:article).permit(:title, :description)
+        end
+
+        def require_user_owner
+            if current_user != @article.user
+                flash[:danger] = "You can only edit or delete your own articles."
+                redirect_to articles_path
+            end
         end
 
 end
