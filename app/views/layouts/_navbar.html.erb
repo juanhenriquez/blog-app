@@ -9,23 +9,16 @@
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
 
-        <% if logged_in? == true %>
+        <% if logged_in? %>
             <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
             <%= link_to "About", pages_about_path, class: "mdl-navigation__link" %>
             <a class="mdl-navigation__link" id="articles-nav-button">Articles</a>
-            <a class="mdl-navigation__link" id="user-nav-button">My Profile</a>
             <%= link_to "Log out", logout_path, method: :delete, class: "mdl-navigation__link" %>
 
             <!-- Articles Dropdown -->
             <ul for="articles-nav-button" class="mdl-menu mdl-js-menu">
                 <%= link_to "Articles List", articles_path, class: "mdl-menu__item" %>
                 <%= link_to "New Article", new_article_path, class: "mdl-menu__item" %>
-            </ul>
-
-            <!-- User Dropdown -->
-            <ul for="user-nav-button" class="mdl-menu mdl-js-menu">
-                <%= link_to "Edit Prfolie", edit_user_path(current_user), class: "mdl-menu__item" %>
-                <%= link_to "Show Profile", user_path(current_user), class: "mdl-menu__item" %>
             </ul>
 
         <% else %>
@@ -42,19 +35,12 @@
             <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
             <%= link_to "About", pages_about_path, class: "mdl-navigation__link" %>
             <a class="mdl-navigation__link" id="articles-nav-button">Articles</a>
-            <a class="mdl-navigation__link" id="user-nav-button">My Profile</a>
             <%= link_to "Log out", logout_path, method: :delete, class: "mdl-navigation__link" %>
 
             <!-- Articles Dropdown -->
             <ul for="articles-nav-button" class="mdl-menu mdl-js-menu">
                 <%= link_to "Articles List", articles_path, class: "mdl-menu__item" %>
                 <%= link_to "New Article", new_article_path, class: "mdl-menu__item" %>
-            </ul>
-
-            <!-- User Dropdown -->
-            <ul for="user-nav-button" class="mdl-menu mdl-js-menu">
-                <%= link_to "Edit Prfolie", edit_user_path(current_user), class: "mdl-menu__item" %>
-                <%= link_to "Show Profile", user_path(current_user), class: "mdl-menu__item" %>
             </ul>
 
         <% else %>
