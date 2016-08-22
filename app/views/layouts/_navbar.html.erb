@@ -1,53 +1,73 @@
 <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title">Blog App</span>
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation. We hide it in small screens. -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
 
-        <% if logged_in? %>
+            <!-- Title -->
+            <span class="mdl-layout-title">Blog App</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
+                <%= link_to "About", pages_about_path, class: "mdl-navigation__link" %>
+                <a class="mdl-navigation__link" id="articles-nav-button">Articles</a>
+                <%= link_to "Users", users_path, class: "mdl-navigation__link" %>
+
+                <!-- Articles Dropdown -->
+                <ul for="articles-nav-button" class="mdl-menu mdl-js-menu">
+                    <%= link_to "Articles List", articles_path, class: "mdl-menu__item" %>
+                    <%= link_to("New Article", new_article_path, class: "mdl-menu__item") if logged_in? %>
+                </ul>
+
+                <% if logged_in? == true %>
+
+                    <a class="mdl-navigation__link" id="user-nav-button">My Profile</a>
+                    <%= link_to "Log out", logout_path, method: :delete, class: "mdl-navigation__link" %>
+
+                    <!-- User Dropdown -->
+                    <ul for="user-nav-button" class="mdl-menu mdl-js-menu">
+                        <%= link_to "Edit Profile", edit_user_path(current_user), class: "mdl-menu__item" %>
+                        <%= link_to "Show Profile", user_path(current_user), class: "mdl-menu__item" %>
+                    </ul>
+
+                <% else %>
+                    <%= link_to "Login", login_path, class: "mdl-navigation__link" %>
+                    <%= link_to "Sign up", signup_path, class: "mdl-navigation__link" %>
+                <% end %>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Blog App</span>
+        <nav class="mdl-navigation">
             <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
             <%= link_to "About", pages_about_path, class: "mdl-navigation__link" %>
             <a class="mdl-navigation__link" id="articles-nav-button">Articles</a>
-            <%= link_to "Log out", logout_path, method: :delete, class: "mdl-navigation__link" %>
+            <%= link_to "Users", users_path, class: "mdl-navigation__link" %>
 
             <!-- Articles Dropdown -->
             <ul for="articles-nav-button" class="mdl-menu mdl-js-menu">
                 <%= link_to "Articles List", articles_path, class: "mdl-menu__item" %>
-                <%= link_to "New Article", new_article_path, class: "mdl-menu__item" %>
+                <%= link_to("New Article", new_article_path, class: "mdl-menu__item") if logged_in? %>
             </ul>
 
-        <% else %>
-            <%= link_to "Login", login_path, class: "mdl-navigation__link" %>
-            <%= link_to "Sign up", signup_path, class: "mdl-navigation__link" %>
-        <% end %>
-      </nav>
+            <% if logged_in? %>
+                <a class="mdl-navigation__link" id="user-nav-button">My Profile</a>
+                <%= link_to "Log out", logout_path, method: :delete, class: "mdl-navigation__link" %>
+
+                <!-- User Dropdown -->
+                <ul for="user-nav-button" class="mdl-menu mdl-js-menu">
+                    <%= link_to "Edit Profile", edit_user_path(current_user), class: "mdl-menu__item" %>
+                    <%= link_to "Show Profile", user_path(current_user), class: "mdl-menu__item" %>
+                </ul>
+
+            <% else %>
+                <%= link_to "Login", login_path, class: "mdl-navigation__link" %>
+                <%= link_to "Sign up", signup_path, class: "mdl-navigation__link" %>
+            <% end %>
+        </nav>
     </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Blog App</span>
-    <nav class="mdl-navigation">
-        <% if logged_in? %>
-            <%= link_to "Home", root_path, class: "mdl-navigation__link" %>
-            <%= link_to "About", pages_about_path, class: "mdl-navigation__link" %>
-            <a class="mdl-navigation__link" id="articles-nav-button">Articles</a>
-            <%= link_to "Log out", logout_path, method: :delete, class: "mdl-navigation__link" %>
-
-            <!-- Articles Dropdown -->
-            <ul for="articles-nav-button" class="mdl-menu mdl-js-menu">
-                <%= link_to "Articles List", articles_path, class: "mdl-menu__item" %>
-                <%= link_to "New Article", new_article_path, class: "mdl-menu__item" %>
-            </ul>
-
-        <% else %>
-            <%= link_to "Login", login_path, class: "mdl-navigation__link" %>
-            <%= link_to "Sign up", signup_path, class: "mdl-navigation__link" %>
-        <% end %>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content">
+    <main class="mdl-layout__content">
+        <div class="page-content">
