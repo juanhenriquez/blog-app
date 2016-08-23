@@ -23,7 +23,7 @@
 
                 <% if logged_in? == true %>
 
-                    <a class="mdl-navigation__link" id="user-nav-button">My Profile</a>
+                    <a class="mdl-navigation__link" id="user-nav-button">My Profile <%= "Admin" if current_user.admin? %></a>
                     <%= link_to "Log out", logout_path, method: :delete, class: "mdl-navigation__link" %>
 
                     <!-- User Dropdown -->
@@ -54,7 +54,7 @@
             </ul>
 
             <% if logged_in? %>
-                <a class="mdl-navigation__link" id="user-nav-button">My Profile</a>
+                <a class="mdl-navigation__link" id="user-nav-button">My Profile <%= "Admin" if current_user.admin? %></a>
                 <%= link_to "Log out", logout_path, method: :delete, class: "mdl-navigation__link" %>
 
                 <!-- User Dropdown -->
