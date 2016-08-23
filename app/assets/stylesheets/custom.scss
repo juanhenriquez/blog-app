@@ -81,9 +81,17 @@ textarea.mdl-textfield__input {
 
 }
 
+.alert.alert-dismissible {
+    margin-top: 14px;
+}
+
 .btn-danger {
     background-color: #d9534f!important;
     color: #fff!important;
+}
+
+.mdl-button.mdl-js-button {
+    padding: 0 10px;
 }
 
 .card-home,
