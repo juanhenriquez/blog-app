@@ -14,7 +14,7 @@
                 <p class="card-text"><%= @article.description %></p>
             </div>
             <div class="card-block">
-                <% if logged_in? && current_user == @article.user %>
+                <% if logged_in? && (current_user == @article.user  || current_user.admin?) %>
                     <%= link_to "Edit article", edit_article_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" %>
                     <%= link_to "Delete", article_path(@article),
                             method: :delete,
