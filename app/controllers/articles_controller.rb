@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
     before_action :set_article, only: [:show, :edit, :update, :destroy]
-    before_action :require_user, execept: [:index, :show]
+    before_action :require_user, except: [:index, :show]
     before_action :require_user_owner, only: [:edit, :update, :destroy]
 
     # GET - Show all the articles.
