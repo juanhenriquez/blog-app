@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
     before_action :set_user, only: [:edit, :update, :destroy, :show]
-    before_action :require_user_owner, only: [:edit, :update]
+    before_action :require_user_owner, only: [:edit, :update, :destroy]
+    before_action :require_admin, only: [:destroy]
 
     # GET /users
     def index
@@ -22,10 +23,10 @@ class UsersController < ApplicationController
     # POST /signup
     def create
         @user = User.new(user_params)
-
         if @user.save
+            session[:user_id] = @user.id
             flash[:success] = "Welcome to Blog App #{@user.username}"
-            redirect_to articles_path
+            redirect_to user_path(@user)
         else
             render 'new'
         end
@@ -51,6 +52,10 @@ class UsersController < ApplicationController
 
     # DELETE users/:id
     def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        flash[:danger] = "User and all articles created by the user have been deleted."
+        redirect_to users_path
     end
 
     private
@@ -63,8 +68,15 @@ class UsersController < ApplicationController
     end
 
     def require_user_owner
-        if current_user != @user
-            flash[:danger] = "You can only edit or your own account."
+        if current_user != @user && !current_user.admin?
+            flash[:danger] = "You can only edit or delete your own account."
+            redirect_to root_path
+        end
+    end
+
+    def require_admin
+        if logged_in? && !current_user.admin?
+            flash[:danger] = "Only admin users can perform that action."
             redirect_to root_path
         end
     end
